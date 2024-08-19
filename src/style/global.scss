@@ -1,0 +1,155 @@
+@import "components/main";
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('/fonts/Graphik-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flecha M';
+    src: url('/fonts/FlechaM-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flecha M';
+    src: url('/fonts/FlechaM-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('/fonts/raphik-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('/fonts/MyriadPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('/fonts/Graphik-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+.row-line {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__align-center {
+        align-items: center;
+    }
+
+    &__align-end {
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    &__justify-center {
+        justify-content: center;
+    }
+
+    .column-w40 {
+        @media (min-width: 768px) {
+            width: 40%;
+        }
+    }
+
+    .column-w33 {
+        @media (min-width: 768px) {
+            width: 50%;
+        }
+        @media (min-width: 915px) {
+            width: 33.33%;
+        }
+    }
+    .column-w50 {
+        width: 100%;
+        @media (min-width: 768px) {
+            width: 50%;
+        }
+    }
+
+    .column-w60 {
+        @media (min-width: 768px) {
+            width: 60%;
+        }
+    }
+}
+
+.container {
+    margin: 0 auto;
+ }
+
+.heading-h2 {
+    font: normal normal 300 175px/180px 'Flecha M', sans-serif;
+    @media (max-width: 1600px) {
+        font-size: 150px;
+        line-height: 140px;
+    }
+    @media (max-width: 1240px) {
+        font-size: 75px;
+        line-height: 70px;
+    }
+    @media (max-width: 767px) {
+       font-size: 44px;
+        line-height: 46px;
+    }
+}
+
+.heading-h4 {
+    font: normal normal 500 50px/55px 'Flecha M', sans-serif;
+    letter-spacing: 0.46px;
+    @media (max-width: 1600px) {
+        font-size: 35px;
+        line-height: 39px;
+    }
+    @media (max-width: 1240px) {
+        font-size: 28px;
+        line-height: 29px;
+    }
+    @media (max-width: 767px) {
+        font-size: 19px;
+        line-height: 22px;
+    }
+}
+
+.description {
+    font: normal normal normal 32px/42px 'Graphik', sans-serif;
+    letter-spacing: 0;
+    color: #0B0511;
+    @media (max-width: 1600px) {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+.desktop {
+    display: none !important;
+    @media (min-width: 768px) {
+        display: flex !important;
+    }
+}
+
+.mobile {
+    display: flex !important;
+    @media (min-width: 768px) {
+        display: none !important;
+    }
+}

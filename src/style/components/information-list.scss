@@ -1,0 +1,68 @@
+.information-list {
+    padding-top: 90px;
+    @media (max-width: 1540px) {
+        padding-top: 60px;
+    }
+    @media (max-width: 1240px) {
+        padding-top: 30px;
+    }
+    @media (max-width: 767px) {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -20px;
+    }
+    .row-line {
+        background: url("/images/information/bullet-icon.svg") no-repeat;
+        padding-left: 70px;
+        min-height: 40px;
+        margin-bottom: 50px;
+        @media (max-width: 1540px) {
+            margin-bottom: 40px;
+        }
+        @media (max-width: 1240px) {
+            margin-bottom: 20px;
+        }
+        @media (max-width: 767px) {
+            background: none;
+            padding: 0 20px;
+            width: 50%;
+            flex-wrap: nowrap;
+        }
+    }
+
+    .column-auto {
+        flex: 1 1;
+    }
+
+    &__number {
+        font: normal normal 300 85px/1 "Flecha M", sans-serif;
+        letter-spacing: 0;
+        color: #FF5B35;
+        @media (max-width: 1540px) {
+            font-size: 65px;
+            line-height: 1;
+        }
+        @media (max-width: 1240px) {
+            font-size: 45px;
+        }
+        @media (max-width: 767px) {
+            font-size: 24px;
+            line-height: 24px;
+        }
+    }
+
+    .column-number {
+        padding-right: 30px;
+        flex: 0;
+        @media (max-width: 767px) {
+            padding-right: 15px;
+        }
+    }
+
+    .description {
+        @media (max-width: 767px) {
+            font-size: 13px;
+            line-height: 15px;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
+import HomeBanner from '../components/home-banner.vue';
+import Home from '../components/Home.vue';
+import ContactForm from '../components/contact-form.vue';
+import Maryland from '../components/maryland.vue';
+import About from '../components/about.vue';
+import Information from "../components/information.vue";
+import "../style/global.scss"
+---
+
+<Layout title="Welcome to Astro.">
+	<Header />
+	<main class="main">
+		<HomeBanner />
+		<Home />
+		<Information />
+		<About />
+		<Maryland />
+		<ContactForm />
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	main {
+		overflow: hidden;
+		margin: auto;
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+</style>

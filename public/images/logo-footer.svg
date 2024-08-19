@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="276" height="196.823" viewBox="0 0 276 196.823">
+    <defs>
+        <clipPath id="clip-path">
+            <rect id="Прямоугольник_18" data-name="Прямоугольник 18" width="129.33" height="106.742" fill="#b8e0cf"/>
+        </clipPath>
+        <clipPath id="clip-path-2">
+            <rect id="Прямоугольник_19" data-name="Прямоугольник 19" width="199.414" height="88.954" fill="#fff"/>
+        </clipPath>
+    </defs>
+    <g id="Сгруппировать_189" data-name="Сгруппировать 189" transform="translate(-95 -8475.556)">
+        <g id="Сгруппировать_37" data-name="Сгруппировать 37" transform="translate(95 8475.557)">
+            <g id="Сгруппировать_36" data-name="Сгруппировать 36" clip-path="url(#clip-path)">
+                <path id="Контур_84" data-name="Контур 84" d="M36.03,55.4C16.805,55.489,0,72,0,93.792s16.022,38.4,37.55,38.4c13.709,0,26.431-6.738,33.188-17.258a2.163,2.163,0,0,0-1.845-3.307H59.149a2.222,2.222,0,0,0-1.729.861c-4.257,5.33-11.142,8.276-19.87,8.289-12.23.018-21.468-7.223-24.48-18.592a2.288,2.288,0,0,1,2.207-2.875H71.267a2.171,2.171,0,0,0,2.165-1.987c.1-1.159.148-2.334.148-3.527,0-21.793-16.022-38.5-37.55-38.4M15.344,86.99a2.283,2.283,0,0,1-2.195-2.916C16.261,73.5,25.076,66.811,36.663,66.811c11.509,0,20.369,6.683,23.5,17.259a2.283,2.283,0,0,1-2.194,2.92Z" transform="translate(0 -25.447)" fill="#b8e0cf"/>
+                <path id="Контур_85" data-name="Контур 85" d="M149.752,0h7.8a2.261,2.261,0,0,1,2.261,2.261V57.77a3.769,3.769,0,0,0,3.769,3.768h31.243a2.261,2.261,0,0,1,2.261,2.261v7.8a2.262,2.262,0,0,1-2.261,2.261h-45.07a2.261,2.261,0,0,1-2.261-2.261V2.261A2.261,2.261,0,0,1,149.752,0" transform="translate(-67.753)" fill="#b8e0cf"/>
+            </g>
+        </g>
+        <g id="Сгруппировать_39" data-name="Сгруппировать 39" transform="translate(171.586 8583.426)">
+            <g id="Сгруппировать_38" data-name="Сгруппировать 38" clip-path="url(#clip-path-2)">
+                <text id="N" transform="translate(0 35.865)" fill="#fff" font-size="42" font-family="Helvetica"><tspan x="0" y="0">N</tspan></text>
+                <text id="orth" transform="translate(29.682 35.865)" fill="#fff" font-size="42" font-family="Helvetica"><tspan x="0" y="0">orth</tspan></text>
+                <text id="Bethesda" transform="translate(0 73.374)" fill="#fff" font-size="42" font-family="Helvetica"><tspan x="0" y="0">Bethesda</tspan></text>
+            </g>
+        </g>
+    </g>
+</svg>
