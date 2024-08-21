@@ -1,14 +1,23 @@
 <script setup lang="ts">
 import {ref, onMounted, onUnmounted, nextTick} from 'vue'
 import useParallax from "../composables/useParallax.ts"
+import useAnimate from "../composables/useAnimate.ts";
 
 
 const container = ref<HTMLDivElement | HTMLElement | null>(null)
 const element = ref<HTMLImageElement | null>(null)
+const poster = ref<HTMLDivElement | HTMLElement | null>(null)
+const posterText = ref<HTMLDivElement | HTMLElement | null>(null)
+
 const {isParallaxActive, containerHeight, translateY, handleScroll} = useParallax({container, element, containerHeightCoeff: 1.25})
+
+const {createObserver: createObserverForPoster, animationClass: animationClassForPoster} = useAnimate({element: poster, className: 'animate__bounceInLeft'})
+const {createObserver: createObserverForPosterText, animationClass: animationClassForPosterText} = useAnimate({element: posterText, className: 'animate__bounceInRight'})
 
 onMounted(() => {
     handleScroll()
+    createObserverForPoster()
+    createObserverForPosterText()
     window.addEventListener('scroll', handleScroll)
     nextTick(() => {
         window.dispatchEvent(new Event('scroll'));
@@ -31,11 +40,11 @@ onUnmounted(() => {
                 </div>
             </h2>
             <div class="row-line">
-                <div class="column-w50 part-left">
+                <div ref="poster" class="column-w50 part-left" :class="[animationClassForPoster]">
                     <img class="poster-left-ab" src="/images/home-oval-bg.png" alt="">
                     <div class="gray-color"></div>
                 </div>
-                <div class="column-w50 part-right">
+                <div ref="posterText" class="column-w50 part-right" :class="[animationClassForPosterText]">
                     <p class="description">Coming to the lively mixed-use neighborhood of Pike & Rose, EvolutionLabs
                         North Bethesda will be the premier, walkable, urban life science opportunity in Maryland,
                         developed by Stonebridge.</p>
