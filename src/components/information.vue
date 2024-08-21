@@ -1,23 +1,47 @@
 <script setup lang="ts">
-import {ref, onMounted} from 'vue'
+import {ref, onMounted, nextTick, onUnmounted} from 'vue'
 import useAnimate from "../composables/useAnimate.ts"
+import useParallax from "../composables/useParallax.ts"
 
 
 const heading = ref<HTMLHeadElement|HTMLElement|null>(null)
 const text = ref<HTMLDivElement|HTMLElement|null>(null)
 const imageWrapper = ref<HTMLDivElement|HTMLElement|null>(null)
 const imageWrapperMobile = ref<HTMLDivElement|HTMLElement|null>(null)
+const fullOfLifeContainer = ref<HTMLDivElement|HTMLElement|null>(null)
+const fullOfLifeElement = ref<HTMLDivElement|HTMLElement|null>(null)
 
 const {createObserver: createObserverForHeading, animationClass: animationClassForHeading} = useAnimate({element: heading, classNames: ['animate__fadeInLeft']})
 const {createObserver: createObserverForText, animationClass: animationClassForText} = useAnimate({element: text, classNames: ['animate__fadeInLeft']})
 const {createObserver: createObserverForImageWrapper, animationClass: animationClassForImageWrapper} = useAnimate({element: imageWrapper, classNames: ['animate__fadeInRight']})
 const {createObserver: createObserverForImageWrapperMobile, animationClass: animationClassForImageWrapperMobile} = useAnimate({element: imageWrapperMobile, classNames: ['animate__fadeInRight']})
 
+const {handleScroll, isParallaxActive, containerHeight, translateY} = useParallax({container: fullOfLifeContainer, element: fullOfLifeElement})
+
+const fullOfLifeImgWrapper = ref<HTMLDivElement|HTMLElement|null>(null)
+const fullOfLifeTextWrapper = ref<HTMLDivElement|HTMLElement|null>(null)
+
+const {createObserver: createObserverForFullOfLifeImgWrapper, animationClass: animationClassForFullOfLifeImgWrapper} = useAnimate({element: fullOfLifeImgWrapper, classNames: ['animate__fadeInLeft']})
+const {createObserver: createObserverForFullOfLifeTextWrapper, animationClass: animationClassForFullOfLifeTextWrapper} = useAnimate({element: fullOfLifeTextWrapper, classNames: ['animate__fadeInRight']})
+
 onMounted(() => {
+    handleScroll()
     createObserverForHeading()
     createObserverForText()
     createObserverForImageWrapper()
     createObserverForImageWrapperMobile()
+
+    createObserverForFullOfLifeImgWrapper()
+    createObserverForFullOfLifeTextWrapper()
+
+    window.addEventListener('scroll', handleScroll)
+    nextTick(() => {
+        window.dispatchEvent(new Event('scroll'));
+    })
+})
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
 })
 
 </script>
@@ -84,13 +108,17 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <div class="information-block__title"><span>Full of Life</span></div>
+        <div class="information-block__title">
+            <div ref="fullOfLifeContainer" class="relative" :style="{ height: containerHeight ? `${containerHeight}px` : 'auto'}">
+                <span ref="fullOfLifeElement" :style="{ transform: `translateY(${translateY}px)`, padding: '5% 0'}" :class="{ isParallaxActive }">Full of Life</span>
+            </div>
+        </div>
         <div class="information-block-about-campus row-line">
-            <div class="column-w50 left-poster desktop">
+            <div ref="fullOfLifeImgWrapper" class="column-w50 left-poster desktop" :class="[animationClassForFullOfLifeImgWrapper]">
                 <img src="/images/information/info-map-2.png" alt="">
                 <a href="#" class="more">MORE FLOOR PLATES</a>
             </div>
-            <div class="column-w50 right-column">
+            <div ref="fullOfLifeTextWrapper" class="column-w50 right-column" :class="[animationClassForFullOfLifeTextWrapper]">
                 <p class="description">Designed by experts with thoughtful amenities including an on-site conference
                     facility, and wellness center and lounge.</p>
                 <div class="column-w50 left-poster mobile">
@@ -204,6 +232,7 @@ onMounted(() => {
         span {
             position: relative;
             z-index: 1;
+            display: inline-block;
         }
     }
 
