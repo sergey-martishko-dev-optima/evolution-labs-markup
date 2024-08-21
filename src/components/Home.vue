@@ -11,8 +11,8 @@ const posterText = ref<HTMLDivElement | HTMLElement | null>(null)
 
 const {isParallaxActive, containerHeight, translateY, handleScroll} = useParallax({container, element, containerHeightCoeff: 1.25})
 
-const {createObserver: createObserverForPoster, animationClass: animationClassForPoster} = useAnimate({element: poster, className: 'animate__bounceInLeft'})
-const {createObserver: createObserverForPosterText, animationClass: animationClassForPosterText} = useAnimate({element: posterText, className: 'animate__bounceInRight'})
+const {createObserver: createObserverForPoster, animationClass: animationClassForPoster} = useAnimate({element: poster, classNames: ['animate__bounceInLeft']})
+const {createObserver: createObserverForPosterText, animationClass: animationClassForPosterText} = useAnimate({element: posterText, classNames: ['animate__bounceInRight']})
 
 onMounted(() => {
     handleScroll()

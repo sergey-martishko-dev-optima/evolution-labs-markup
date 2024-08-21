@@ -3,10 +3,10 @@ import {ref} from 'vue'
 
 type UseAnimateArguments = {
     element: Ref<HTMLElement|null>,
-    className: string,
+    classNames: string[],
 }
 
-export default ({element, className}: UseAnimateArguments) => {
+export default ({element, classNames}: UseAnimateArguments) => {
     const animationClass = ref('');
 
     const createObserver = () => {
@@ -24,7 +24,7 @@ export default ({element, className}: UseAnimateArguments) => {
     const handleIntersect = (entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                animationClass.value = `animate__animated ${className}`;
+                animationClass.value = `animate__animated ${classNames.join(' ')}`;
             }
         });
     };
