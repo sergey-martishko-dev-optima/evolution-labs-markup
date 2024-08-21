@@ -1,0 +1,10 @@
+services:
+    app:
+        image: node:22.6.0
+        ports:
+            - "3000:3000"
+            - "4321:4321"
+        volumes:
+            - .:/opt/node_app/app
+        working_dir: /opt/node_app/app
+        command: tail -f /dev/null

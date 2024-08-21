@@ -16,7 +16,7 @@
           <h4 class="heading-h4">TOP LOCATION FOR VENTURE CAPITAL
             AND NIH FUNDING</h4>
           <p class="text-list__content">Large % of overall VC and NIH funding relative to market size
-            <stron>$1.4B</stron> for 2024</p>
+            <strong>$1.4B</strong> for 2024</p>
         </div>
         <div class="column-w33">
           <h4 class="heading-h4">LEADER IN NEW PATENTS </h4>
