@@ -22,8 +22,8 @@ export default ({element, classNames}: UseAnimateArguments) => {
     };
 
     // TODO: add type for entries/entry instead of type any
-    const handleIntersect = (entries: any) => {
-        entries.forEach((entry: any) => {
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
             if (entry.isIntersecting) {
                 animationClass.value = `animate__animated ${classNames.join(' ')}`;
             }

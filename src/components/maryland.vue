@@ -3,13 +3,14 @@ import {ref, onMounted, nextTick, onUnmounted} from 'vue'
 import useAnimate from "../composables/useAnimate.ts"
 import useParallax from "../composables/useParallax.ts"
 
-const container = ref<HTMLDivElement | HTMLElement | null>(null)
-const element = ref<HTMLImageElement | null>(null)
+const headingContainer = ref<HTMLDivElement | HTMLElement | null>(null)
+const heading = ref<HTMLImageElement | null>(null)
 const poster = ref<HTMLDivElement | HTMLElement | null>(null)
 const posterText = ref<HTMLDivElement | HTMLElement | null>(null)
 
-const {isParallaxActive, containerHeight, translateY, handleScroll} = useParallax({container, element, containerHeightCoeff: 1.35})
+const {isParallaxActive, translateY, handleScroll} = useParallax({container: headingContainer, element: heading, containerHeightCoeff: 2})
 
+// todo apply animations
 const {createObserver: createObserverForPoster, animationClass: animationClassForPoster} = useAnimate({element: poster, classNames: ['animate__bounceInLeft']})
 const {createObserver: createObserverForPosterText, animationClass: animationClassForPosterText} = useAnimate({element: posterText, classNames: ['animate__bounceInRight']})
 
@@ -31,7 +32,9 @@ onUnmounted(() => {
 <template>
     <section class="maryland-section">
         <div class="container">
-            <h2 class="heading-h2">Maryland is the <br/> #3 life sciences cluster <br/> and growing. </h2>
+            <div ref="headingContainer" class="relative" >
+                <h2 ref="heading" class="heading-h2" :style="{ transform: `translateY(${translateY}px)`}" :class="{ isParallaxActive }">Maryland is the <br/> #3 life sciences cluster <br/> and growing. </h2>
+            </div>
             <p class="description">There’s a reason so many prominent life sciences companies are choosing DNA
                 Alley.</p>
             <div class="text-list row-line">
@@ -150,7 +153,7 @@ onUnmounted(() => {
         letter-spacing: 0;
         color: #FFFFFF;
         position: relative;
-        margin-bottom: 30px;
+        //margin-bottom: 30px;
         z-index: 5;
         @media (max-width: 1540px) {
             font-size: 95px;

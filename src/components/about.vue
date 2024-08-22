@@ -1,19 +1,57 @@
 <script setup lang="ts">
+import {ref, onMounted, nextTick, onUnmounted} from 'vue'
+import useParallax from "../composables/useParallax.ts"
 
+const headingContainer = ref<HTMLElement | null>(null)
+const heading = ref<HTMLElement | null>(null)
+
+const image1Container = ref<HTMLElement | null>(null)
+const image1 = ref<HTMLElement | null>(null)
+
+const image2Container = ref<HTMLElement | null>(null)
+const image2 = ref<HTMLElement | null>(null)
+
+const {isParallaxActive, translateY, handleScroll} = useParallax({container: headingContainer, element: heading, containerHeightCoeff: 2})
+
+const {isParallaxActive: isParallaxActiveImage1, translateY: translateYImage1, handleScroll: handleScrollImage1} = useParallax({container: image1Container, element: image1, containerHeightCoeff: 1.5})
+
+const {isParallaxActive: isParallaxActiveImage2, translateY: translateYImage2, handleScroll: handleScrollImage2} = useParallax({container: image2Container, element: image2, containerHeightCoeff: 2})
+
+onMounted(() => {
+    handleScroll()
+    handleScrollImage1()
+    handleScrollImage2()
+    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScrollImage1)
+    window.addEventListener('scroll', handleScrollImage2)
+    nextTick(() => {
+        window.dispatchEvent(new Event('scroll'));
+    })
+})
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+    window.removeEventListener('scroll', handleScrollImage1)
+    window.removeEventListener('scroll', handleScrollImage2)
+})
 </script>
 
 <template>
     <section class="about-section">
         <div class="container">
-            <div class="about-top">
-                <h2 class="heading-h2">Energy will flow <br/>
+            <div ref="headingContainer" class="about-top relative">
+                <h2 ref="heading" class="heading-h2" :style="{ transform: `translateY(${translateY}px)`}" :class="{ isParallaxActive }">Energy will flow <br/>
                     in and out of this <br/>
                     life sciences campus. </h2>
             </div>
         </div>
         <div class="about-block row-line">
-            <div class="about-photo first-block"><img src="/images/about/post-img-2.svg" alt=""></div>
-            <div class="about-photo second-block"><img src="/images/about/post-img.svg" alt=""></div>
+            <div ref="image1Container" class="about-photo first-block">
+                <img ref="image1" src="/images/about/post-img-2.svg" alt="" :style="{ transform: `translateY(${translateYImage1}px)`}" :class="{ isParallaxActiveImage1 }">
+            </div>
+            <div ref="image2Container" class="about-photo second-block">
+                <img ref="image2" src="/images/about/post-img.svg" alt="" :style="{ transform: `translateY(${translateYImage2}px)`}" :class="{ isParallaxActiveImage2 }">
+            </div>
             <div class="desktop about-block-text">
                 <p>Just as EvolutionLabs North Bethesda will inspire the neighborhood with its presence, the vibrancy of
                     its surroundings is sure to inspire scientists working within it. </p>

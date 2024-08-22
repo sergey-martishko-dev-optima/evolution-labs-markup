@@ -10,6 +10,7 @@ type useParallaxArgument = {
 export default ({container, element, containerHeightCoeff = 2}: useParallaxArgument) => {
     let isParallaxActive = ref<boolean>(false)
     let containerHeight = ref<number>(0)
+    let reducedContainerHeight = ref<number>(0)
     let translateY = ref<number>(0)
 
     const handleScroll = () => {
@@ -26,6 +27,7 @@ export default ({container, element, containerHeightCoeff = 2}: useParallaxArgum
             const scrollProgress = (window.innerHeight - containerTop) / (window.innerHeight + containerHeight.value)
             containerHeight.value = (elementHeight / containerHeightCoeff)
             translateY.value = -((elementHeight - containerHeight.value) * scrollProgress)
+            reducedContainerHeight.value = elementHeight - containerHeight.value
         } else {
             isParallaxActive.value = false
         }
@@ -36,5 +38,6 @@ export default ({container, element, containerHeightCoeff = 2}: useParallaxArgum
         isParallaxActive,
         containerHeight,
         translateY,
+        reducedContainerHeight,
     }
 }

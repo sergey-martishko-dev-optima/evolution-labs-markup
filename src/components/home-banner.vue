@@ -5,7 +5,7 @@ import useParallax from "../composables/useParallax.ts"
 
 const container = ref<HTMLDivElement | HTMLElement | null>(null)
 const element = ref<HTMLImageElement | null>(null)
-const {isParallaxActive, containerHeight, translateY, handleScroll} = useParallax({container, element})
+const {isParallaxActive, containerHeight, translateY, handleScroll} = useParallax({container, element, containerHeightCoeff: 1.3})
 
 const onImageLoad = () => {
     if (!element.value) {
@@ -40,11 +40,12 @@ onUnmounted(() => {
         background: #FF5B35;
         margin: 0 -100px;
         @media (min-width: 1024px) {
-          height: 1000px !important;
-          padding-top: 100px;
+          //height: 1000px !important;
+          //padding-top: 100px;
         }
 
         img {
+            //height: 3000px;
             margin: 0 auto;
             max-width: calc(100% + 309px);
         }
