@@ -98,8 +98,13 @@
     .download {
         text-decoration: underline;
         font: normal normal normal 26px/30px 'Flecha M', sans-serif;
-        letter-spacing: 0px;
+        letter-spacing: 0;
         color: #2C72E4;
+        transition: .4s;
+        &:hover {
+          color: #FF5B35;
+          text-decoration: none;
+        }
     }
 
     .form {

@@ -39,9 +39,14 @@ onUnmounted(() => {
     .banner {
         background: #FF5B35;
         margin: 0 -100px;
+        @media (min-width: 1024px) {
+          height: 1000px !important;
+          padding-top: 100px;
+        }
 
         img {
             margin: 0 auto;
+            max-width: calc(100% + 309px);
         }
     }
 }

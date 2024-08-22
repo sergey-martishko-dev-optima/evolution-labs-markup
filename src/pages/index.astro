@@ -8,6 +8,7 @@ import ContactForm from '../components/contact-form.vue';
 import Maryland from '../components/maryland.vue';
 import About from '../components/about.vue';
 import Information from "../components/information.vue";
+import AboutMap from "../components/about-map.vue";
 import "../style/global.scss"
 import 'animate.css';
 ---
@@ -18,9 +19,10 @@ import 'animate.css';
 		<HomeBanner client:visible />
 		<Home client:visible />
 		<Information client:visible />
-		<About />
-		<Maryland />
-		<ContactForm />
+		<About client:visible />
+		<AboutMap client:visible />
+		<Maryland client:visible />
+		<ContactForm client:visible />
 	</main>
 	<Footer />
 </Layout>

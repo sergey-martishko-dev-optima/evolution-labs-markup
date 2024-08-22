@@ -1,5 +1,31 @@
 <script setup lang="ts">
+import {ref, onMounted, nextTick, onUnmounted} from 'vue'
+import useAnimate from "../composables/useAnimate.ts"
+import useParallax from "../composables/useParallax.ts"
 
+const container = ref<HTMLDivElement | HTMLElement | null>(null)
+const element = ref<HTMLImageElement | null>(null)
+const poster = ref<HTMLDivElement | HTMLElement | null>(null)
+const posterText = ref<HTMLDivElement | HTMLElement | null>(null)
+
+const {isParallaxActive, containerHeight, translateY, handleScroll} = useParallax({container, element, containerHeightCoeff: 1.35})
+
+const {createObserver: createObserverForPoster, animationClass: animationClassForPoster} = useAnimate({element: poster, classNames: ['animate__bounceInLeft']})
+const {createObserver: createObserverForPosterText, animationClass: animationClassForPosterText} = useAnimate({element: posterText, classNames: ['animate__bounceInRight']})
+
+onMounted(() => {
+  handleScroll()
+  createObserverForPoster()
+  createObserverForPosterText()
+  window.addEventListener('scroll', handleScroll)
+  nextTick(() => {
+    window.dispatchEvent(new Event('scroll'));
+  })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>
@@ -94,12 +120,11 @@
         top: -300px;
         right: 50%;
         left: 50%;
-        z-index: 2;
+        z-index: 1;
         transform: translate(-50%, 0);
         @media (max-width: 1540px) {
-            width: 850px;
-            height: 393px;
-            left: -17%;
+            width: 1350px;
+            height: 620px;
             top: -249px;
         }
         @media (max-width: 767px) {
