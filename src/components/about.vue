@@ -25,38 +25,15 @@
                     its surroundings is sure to inspire scientists working within it. </p>
             </div>
         </div>
-        <div class="about-block-map">
-            <div class="container">
-                <h2 class="heading-h2">From discoveries <br/> to dining.</h2>
-                <div class="row-line row-line__align-center">
-                    <div class="column-w50">
-                        <p class="about-text-map__description">Located just steps to the shopping, dining and
-                            entertainment of Pike & Rose, within proximity of governmental agencies like the FDA and
-                            just a short walk to the North Bethesda train station.</p>
-                        <ul class="about-text-map__list">
-                            <li><strong>NIH Campus</strong> 2 metro stops / 15 min drive</li>
-                            <li><strong>NIST</strong> 15 min drive</li>
-                            <li><strong>FDA Headquarters</strong> 20 min drive</li>
-                        </ul>
-                    </div>
-                    <div class="column-w50">
-                        <div class="map">
-                            <img src="/images/about/map-site.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 </template>
 
 <style scoped lang="scss">
 .about-section {
     background: #B8E0CF;
-    padding: 150px 38px 0;
+    padding: 150px 38px 100px;
     position: relative;
-    min-height: 1500px;
-    margin: 613px 0 453px;
+    margin: 613px 0 0;
     z-index: 4;
     @media (max-width: 1240px) {
         margin: 0 0 200px;
@@ -95,42 +72,13 @@
         }
     }
 
-    &:after {
-        content: "";
-        background: url("/images/about/about-bottom-line.svg") repeat-x 50% 0;
-        background-size: cover;
-        width: 2662px;
-        height: 453px;
-        position: absolute;
-        bottom: -453px;
-        right: 50%;
-        left: 50%;
-        z-index: 2;
-        transform: translate(-50%, 0);
-        @media (max-width: 1540px) {
-            width: 1634px;
-            height: 324px;
-            bottom: -324px;
-        }
-        @media (max-width: 1240px) {
-            width: 1250px;
-            height: 224px;
-            bottom: -224px;
-        }
-        @media (max-width: 767px) {
-            height: 98px;
-            bottom: -98px;
-            width: 100%;
-        }
-    }
-
     .heading-h2 {
-        color: #FF5B35;
-        position: relative;
-        z-index: 4;
-        @media (max-width: 767px) {
-            margin: 0 38px;
-        }
+      color: #FF5B35;
+      position: relative;
+      z-index: 4;
+      @media (max-width: 767px) {
+        margin: 0 38px;
+      }
     }
 
     .about-top {
@@ -212,41 +160,14 @@
         }
     }
 
-    .about-block-map {
-        .row-line {
-            margin-top: -220px;
-            @media (max-width: 767px) {
-                margin: 0;
-            }
-        }
-
-        .map {
-            img {
-                @media (max-width: 1540px) {
-                    width: 1051px;
-                    height: 1051px;
-                    max-width: fit-content;
-                    transform: translate(-26%, 0);
-                }
-                @media (max-width: 1240px) {
-                    width: 700px;
-                    height: 700px;
-                    transform: translate(-20%, 22%);
-                }
-                @media (max-width: 767px) {
-                    width: 100%;
-                    height: auto;
-                    transform: translate(0, 0);
-                }
-            }
-        }
-    }
-
     .about-block-text {
         max-width: 565px;
         position: absolute;
         bottom: 0;
         right: 10%;
+        @media (max-width: 1540px) {
+          max-width: 470px;
+        }
         @media (max-width: 1240px) {
             max-width: 400px;
             right: 5%;
@@ -297,45 +218,6 @@
             @media (max-width: 767px) {
                 font-size: 13px;
                 line-height: 16px;
-            }
-        }
-    }
-
-    .about-text-map {
-        &__description {
-            padding-top: 150px;
-            font: normal normal normal 32px/42px 'Graphik', sans-serif;
-            letter-spacing: 0;
-            color: #0B0511;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
-            @media (max-width: 1600px) {
-                font-size: 22px;
-                line-height: 28px;
-                max-width: 470px;
-            }
-            @media (max-width: 767px) {
-                font-size: 13px;
-                line-height: 18px;
-                padding-top: 40px;
-            }
-        }
-
-        &__list {
-            font: normal normal normal 32px/42px 'Graphik', sans-serif;
-            letter-spacing: 0;
-            color: #0B0511;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
-            @media (max-width: 1600px) {
-                font-size: 22px;
-                line-height: 28px;
-            }
-            @media (max-width: 767px) {
-                font-size: 13px;
-                line-height: 18px;
             }
         }
     }

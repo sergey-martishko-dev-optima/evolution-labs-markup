@@ -262,7 +262,7 @@ onUnmounted(() => {
         }
 
         img {
-            max-width: max-content;
+            max-width: 95%;
             @media (max-width: 1540px) {
                 max-width: 900px;
             }
@@ -323,6 +323,8 @@ onUnmounted(() => {
             bottom: -50px;
             right: 0;
             font: normal normal normal 32px/40px "Flecha M", sans-serif;
+            transition: .4s;
+
             @media (max-width: 1540px) {
                 font-size: 26px;
                 line-height: 30px;
@@ -335,6 +337,9 @@ onUnmounted(() => {
                 position: relative;
                 bottom: 0;
                 font-size: 17px;
+            }
+            &:hover {
+              background: #FF5B35;
             }
         }
     }
