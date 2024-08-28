@@ -16,12 +16,12 @@ const {isParallaxActive, translateY, handleScroll} = useParallax({
 
 const {createObserver: createObserverForPoster, animationClass: animationClassForPoster} = useAnimate({
     element: poster,
-    classNames: ['animate__bounceInRight']
+    classNames: ['animate__fadeInUp']
 })
 const {
     createObserver: createObserverForPosterText,
     animationClass: animationClassForPosterText
-} = useAnimate({element: posterText, classNames: ['animate__bounceInLeft']})
+} = useAnimate({element: posterText, classNames: ['animate__fadeInUp']})
 
 onMounted(() => {
     handleScroll()
@@ -71,9 +71,25 @@ onUnmounted(() => {
 .about-block-map {
     background: #B8E0CF;
     position: relative;
-    margin-bottom: 453px;
+    margin-bottom: 418px;
     padding: 50px 50px 0;
     z-index: 3;
+    margin-top: -1px;
+    @media (max-width: 1540px) {
+        margin-bottom: 503px;
+    }
+    @media (max-width: 1240px) {
+        margin-bottom: 187px;
+        padding-top: 100px;
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+        margin-bottom: 122px;
+        padding-top: 50px;
+    }
+    @media (max-width: 767px) {
+      margin-bottom: 81px;
+      padding: 50px 20px 50px;
+    }
 
     &:after {
         content: "";
@@ -90,16 +106,21 @@ onUnmounted(() => {
         @media (max-width: 1540px) {
             width: 1634px;
             height: 324px;
-            bottom: -324px;
+            bottom: -322px;
         }
         @media (max-width: 1240px) {
             width: 1250px;
             height: 224px;
             bottom: -224px;
         }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            width: 1120px;
+            height: 191px;
+            bottom: -187px;
+        }
         @media (max-width: 767px) {
             height: 98px;
-            bottom: -98px;
+            bottom: -96px;
             width: 100%;
         }
     }
@@ -109,6 +130,19 @@ onUnmounted(() => {
         @media (max-width: 767px) {
             margin: 0;
         }
+        
+        .column-w50 {
+            &:first-child {
+                position: relative;
+                z-index: 5;
+            }
+        }
+        .column {
+            &:first-child {
+                position: relative;
+                z-index: 5;
+            }
+        }
     }
 
     .heading-h2 {
@@ -116,13 +150,13 @@ onUnmounted(() => {
         position: relative;
         z-index: 4;
         @media (max-width: 767px) {
-            margin: 0 38px;
+            margin: 0;
         }
     }
 
     .map {
         @media (max-width: 1540px) {
-            height: 851px !important;
+            height: 941px !important;
         }
         @media (max-width: 1240px) {
             height: 700px !important;
@@ -141,14 +175,20 @@ onUnmounted(() => {
                 transform: translate(-26%, 0);
             }
             @media (max-width: 1240px) {
-                width: 700px;
-                height: 700px;
-                transform: translate(-20%, 22%);
+                width: 615px;
+                height: 594px;
+                transform: translate(-15%, 17%);
+            }
+            @media (min-width: 768px) and (max-width: 1023px) {
+                width: 450px;
+                height: 450px;
+                transform: translate(-14%, 28%);
             }
             @media (max-width: 767px) {
-                width: 100%;
-                height: auto;
-                transform: translate(0, 0);
+              width: calc(100% + 40px);
+              height: auto;
+              transform: translate(0, 0);
+              margin: 0 -20px;
             }
         }
     }

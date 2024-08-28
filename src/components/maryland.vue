@@ -11,8 +11,8 @@ const posterText = ref<HTMLDivElement | HTMLElement | null>(null)
 const {isParallaxActive, translateY, handleScroll} = useParallax({container: headingContainer, element: heading, containerHeightCoeff: 2})
 
 // todo apply animations
-const {createObserver: createObserverForPoster, animationClass: animationClassForPoster} = useAnimate({element: poster, classNames: ['animate__bounceInLeft']})
-const {createObserver: createObserverForPosterText, animationClass: animationClassForPosterText} = useAnimate({element: posterText, classNames: ['animate__bounceInRight']})
+const {createObserver: createObserverForPoster, animationClass: animationClassForPoster} = useAnimate({element: poster, classNames: ['animate__fadeInUp']})
+const {createObserver: createObserverForPosterText, animationClass: animationClassForPosterText} = useAnimate({element: posterText, classNames: ['animate__fadeInUp']})
 
 onMounted(() => {
   handleScroll()
@@ -74,14 +74,17 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .maryland-section {
     background: #030303;
-    padding: 0 38px 150px;
-    margin: -237px 0 0;
+    padding: 200px 38px 150px;
+    margin: -272px 0 0;
     position: relative;
     @media (max-width: 1240px) {
         margin: 0;
     }
+    @media (min-width: 768px) and (max-width: 1023px) {
+        padding-bottom: 100px;
+    }
     @media (max-width: 767px) {
-        padding-bottom: 70px;
+        padding: 0 20px 70px;
     }
 
     &:before {
@@ -106,9 +109,15 @@ onUnmounted(() => {
             left: -17%;
             top: -249px;
         }
-        @media (max-width: 767px) {
+        @media (min-width: 768px) and (max-width: 1023px) {
             width: 426px;
             height: 220px;
+            top: -109px;
+            left: 0;
+        }
+        @media (max-width: 767px) {
+            width: 626px;
+            height: 320px;
             top: -109px
         }
     }
@@ -130,6 +139,7 @@ onUnmounted(() => {
             height: 620px;
             top: -249px;
         }
+        
         @media (max-width: 767px) {
             width: 584px;
             height: 500px;
@@ -164,8 +174,9 @@ onUnmounted(() => {
             line-height: 65px;
         }
         @media (max-width: 767px) {
-            font-size: 44px;
+            font-size: 40px;
             line-height: 46px;
+            margin-bottom: 30px;
         }
     }
 
@@ -178,7 +189,10 @@ onUnmounted(() => {
     }
 
     .column-w33 {
-        padding-bottom: 50px;
+        padding: 0 40px 50px;
+        @media (max-width: 767px) {
+          padding: 0 0 50px;
+        }
     }
 
     .description {
@@ -201,6 +215,10 @@ onUnmounted(() => {
     }
 
     .text-list {
+        margin: 0 -40px;
+        @media (max-width: 767px) {
+            margin: 0;
+        }
         &__content {
             font: normal normal normal 32px/42px 'Graphik', sans-serif;
             letter-spacing: 0px;
@@ -216,6 +234,9 @@ onUnmounted(() => {
         max-width: 1024px;
         @media (max-width: 1540px) {
             max-width: 664px;
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            max-width: 58%;
         }
         @media (max-width: 767px) {
             font-size: 10px;

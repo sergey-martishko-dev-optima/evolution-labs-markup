@@ -15,6 +15,10 @@
 .header {
     background: #FF5B35;
     padding: 30px 38px;
+    overflow: hidden;
+    margin: 0 0 -3px;
+    position: relative;
+    z-index: 2;
 
     &__logo {
         max-width: 260px;
