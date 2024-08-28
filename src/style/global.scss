@@ -26,7 +26,7 @@
 
 @font-face {
     font-family: 'Graphik';
-    src: url('/fonts/raphik-Regular.woff') format('woff');
+    src: url('/fonts/Graphik-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -137,6 +137,10 @@
     @media (max-width: 1600px) {
         font-size: 20px;
         line-height: 28px;
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+        font-size: 18px;
+        line-height: 24px;
     }
 }
 
