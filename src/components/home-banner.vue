@@ -5,7 +5,7 @@ import useParallax from "../composables/useParallax.ts"
 
 const container = ref<HTMLDivElement | HTMLElement | null>(null)
 const element = ref<HTMLImageElement | null>(null)
-const {isParallaxActive, containerHeight, translateY, handleScroll} = useParallax({container, element, containerHeightCoeff: 1.3})
+const {isParallaxActive, containerHeight, translateY, handleScroll} = useParallax({container, element, containerHeightCoeff: 1.22})
 
 const onImageLoad = () => {
     if (!element.value) {
@@ -28,8 +28,8 @@ onUnmounted(() => {
 
 <template>
     <section class="home-banner">
-        <div ref="container" class="banner overflow-hidden relative" :style="{ height: containerHeight ? `${containerHeight}px` : 'auto'}">
-            <img ref="element" @load="onImageLoad" src="/images/home-photo.png" alt="" :style="{ transform: `translateY(${translateY}px)`}" :class="{ isParallaxActive }">
+        <div ref="container" class="banner overflow-hidden relative">
+            <img src="/images/home-photo.png" alt="" />
         </div>
     </section>
 </template>
@@ -38,7 +38,8 @@ onUnmounted(() => {
 .home-banner {
     .banner {
         background: #FF5B35;
-        margin: 0 -100px;
+        margin: 0 0 -2px;
+        position: relative;
         @media (min-width: 1024px) {
           //height: 1000px !important;
           //padding-top: 100px;
@@ -47,7 +48,8 @@ onUnmounted(() => {
         img {
             //height: 3000px;
             margin: 0 auto;
-            max-width: calc(100% + 309px);
+            // max-width: calc(100% + 309px);
+            max-width: 100%;
         }
     }
 }

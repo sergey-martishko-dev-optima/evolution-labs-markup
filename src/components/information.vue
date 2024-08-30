@@ -11,18 +11,18 @@ const imageWrapperMobile = ref<HTMLDivElement|HTMLElement|null>(null)
 const fullOfLifeContainer = ref<HTMLDivElement|HTMLElement|null>(null)
 const fullOfLifeElement = ref<HTMLDivElement|HTMLElement|null>(null)
 
-const {createObserver: createObserverForHeading, animationClass: animationClassForHeading} = useAnimate({element: heading, classNames: ['animate__fadeInLeft']})
-const {createObserver: createObserverForText, animationClass: animationClassForText} = useAnimate({element: text, classNames: ['animate__fadeInLeft']})
-const {createObserver: createObserverForImageWrapper, animationClass: animationClassForImageWrapper} = useAnimate({element: imageWrapper, classNames: ['animate__fadeInRight']})
-const {createObserver: createObserverForImageWrapperMobile, animationClass: animationClassForImageWrapperMobile} = useAnimate({element: imageWrapperMobile, classNames: ['animate__fadeInRight']})
+const {createObserver: createObserverForHeading, animationClass: animationClassForHeading} = useAnimate({element: heading, classNames: ['animate__fadeInUp']})
+const {createObserver: createObserverForText, animationClass: animationClassForText} = useAnimate({element: text, classNames: ['animate__fadeInUp']})
+const {createObserver: createObserverForImageWrapper, animationClass: animationClassForImageWrapper} = useAnimate({element: imageWrapper, classNames: ['animate__fadeInUp']})
+const {createObserver: createObserverForImageWrapperMobile, animationClass: animationClassForImageWrapperMobile} = useAnimate({element: imageWrapperMobile, classNames: ['animate__fadeInUp']})
 
 const {handleScroll, isParallaxActive, containerHeight, translateY} = useParallax({container: fullOfLifeContainer, element: fullOfLifeElement})
 
 const fullOfLifeImgWrapper = ref<HTMLDivElement|HTMLElement|null>(null)
 const fullOfLifeTextWrapper = ref<HTMLDivElement|HTMLElement|null>(null)
 
-const {createObserver: createObserverForFullOfLifeImgWrapper, animationClass: animationClassForFullOfLifeImgWrapper} = useAnimate({element: fullOfLifeImgWrapper, classNames: ['animate__fadeInLeft']})
-const {createObserver: createObserverForFullOfLifeTextWrapper, animationClass: animationClassForFullOfLifeTextWrapper} = useAnimate({element: fullOfLifeTextWrapper, classNames: ['animate__fadeInRight']})
+const {createObserver: createObserverForFullOfLifeImgWrapper, animationClass: animationClassForFullOfLifeImgWrapper} = useAnimate({element: fullOfLifeImgWrapper, classNames: ['animate__fadeInUp']})
+const {createObserver: createObserverForFullOfLifeTextWrapper, animationClass: animationClassForFullOfLifeTextWrapper} = useAnimate({element: fullOfLifeTextWrapper, classNames: ['animate__fadeInUp']})
 
 onMounted(() => {
     handleScroll()
@@ -144,7 +144,7 @@ onUnmounted(() => {
                     </div>
                     <div class="row-line">
                         <div class="column-number">
-                            <span class="information-list__number">16</span>
+                            <span class="information-list__number">16'</span>
                         </div>
                         <div class="column-auto">
                             <p class="description">slab-to-slab ceiling height throughout to allow for flexible
@@ -174,12 +174,18 @@ onUnmounted(() => {
     padding: 350px 0 500px;
     margin-bottom: -391px;
     @media (max-width: 1540px) {
-        padding: 241px 0 500px;
+        padding: 241px 50px 500px 100px;
     }
 
     @media (max-width: 1240px) {
-        padding: 101px 0 300px;
+        padding: 141px 20px 300px;
         margin: 0;
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+        padding: 151px 20px 300px;
+    }
+    @media (max-width: 767px) {
+        padding: 101px 0 350px;
     }
 
     &__title {
@@ -194,12 +200,19 @@ onUnmounted(() => {
         @media (max-width: 1540px) {
             font-size: 340px;
             padding-top: 0;
+            margin-left: -100px;
         }
 
         @media (max-width: 1240px) {
             font-size: 240px;
             padding: 0 0 50px;
             margin: 0;
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            font-size: 180px;
+            padding-top: 150px;
+            padding-bottom: 0;
+            margin: -97px 0 80px;
         }
         @media (max-width: 767px) {
             font-size: 87px;
@@ -216,16 +229,27 @@ onUnmounted(() => {
             position: absolute;
             bottom: 35px;
             left: -30%;
+            @media (max-width: 1540px) {
+                width: 1300px;
+                height: 350px;
+            }
             @media (max-width: 1240px) {
                 width: 1000px;
                 height: 277px;
+            }
+            @media (min-width: 768px) and (max-width: 1023px) {
+                width: 668px;
+                height: 180px;
+                transform: rotate(180deg);
+                left: 23%;
+                top: 52px;
             }
             @media (max-width: 767px) {
                 width: 473px;
                 height: 127px;
                 transform: rotate(180deg);
                 left: 23%;
-                top: 91px;
+                top: 52px;
             }
         }
 
@@ -239,7 +263,7 @@ onUnmounted(() => {
     .heading-h2 {
         color: #FF5B35;
         @media (max-width: 767px) {
-            padding: 0 38px;
+            padding: 0 20px;
         }
     }
 
@@ -262,18 +286,32 @@ onUnmounted(() => {
         }
 
         img {
-            max-width: 95%;
+            max-width: 110%;
+            // @media (max-width: 1540px) {
+            //     max-width: 900px;
+            // }
             @media (max-width: 1540px) {
-                max-width: 900px;
+                max-width: 763px;
+                max-height: 585px;
             }
-            @media (max-width: 1540px) {
-                max-width: 676px;
+            @media (min-width: 768px) and (max-width: 1023px) {
+                max-width: 555px;
+                margin: 0 0 0 -72px;
+                object-fit: contain;
             }
         }
 
+        .column-w60 {
+            align-items: center;
+        }
+
         .column-w40 {
+            @media (min-width: 768px) and (max-width: 1023px) {
+                position: relative;
+                z-index: 4;
+            }
             @media (max-width: 767px) {
-                padding: 0 38px;
+                padding: 0 20px;
             }
         }
 
@@ -284,14 +322,21 @@ onUnmounted(() => {
             justify-content: center;
             width: 55%;
             position: relative;
+            @media (min-width: 768px) and (max-width: 1023px) {
+                width: 50%;
+            }
             @media (max-width: 767px) {
+                background: #FFFFFF;
                 width: calc(100% + 72px);
                 margin: 40px -36px 0;
             }
 
             img {
+                max-width: 100%;
+                margin: 0;
                 @media (max-width: 1540px) {
-                    max-width: 740px;
+                  max-width: 90%;
+                  margin: 0;
                 }
                 @media (max-width: 1240px) {
                     max-width: 90%;
@@ -303,14 +348,18 @@ onUnmounted(() => {
         }
 
         .right-column {
-            padding: 0 100px;
+            padding: 0 70px;
             width: 45%;
             @media (max-width: 1240px) {
                 padding: 0 50px;
             }
+            @media (min-width: 768px) and (max-width: 1023px) {
+                width: 50%;
+                padding: 0 20px;
+            }
             @media (max-width: 767px) {
                 width: 100%;
-                padding: 0 30px;
+                padding: 0 20px;
             }
         }
 
@@ -328,9 +377,15 @@ onUnmounted(() => {
             @media (max-width: 1540px) {
                 font-size: 26px;
                 line-height: 30px;
-            }
-            @media (max-width: 1240px) {
                 bottom: -40px;
+            }
+            //@media (max-width: 1240px) {
+            //    bottom: -40px;
+            //}
+            @media (min-width: 768px) and (max-width: 1023px) {
+                font-size: 22px;
+                line-height: 22px;
+                bottom: -32px;
             }
             @media (max-width: 767px) {
                 border-radius: 10px;

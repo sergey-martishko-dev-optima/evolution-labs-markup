@@ -74,12 +74,16 @@ onUnmounted(() => {
     margin: 613px 0 0;
     z-index: 4;
     @media (max-width: 1240px) {
-        margin: 0 0 200px;
-        padding: 200px 0 157px;
+        margin: -1px 0;
+        padding: 200px 0 0;
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+        margin: 0 0 -3px;
+        padding-bottom: 100px;
     }
     @media (max-width: 767px) {
-        margin-bottom: 87px;
-        padding-bottom: 50px;
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
 
     &:before {
@@ -97,12 +101,15 @@ onUnmounted(() => {
             background-size: cover;
             width: 2150px;
             height: 494px;
-            top: -494px;
+            top: -490px;
         }
         @media (max-width: 1240px) {
             width: 1240px;
             height: 224px;
             top: -224px;
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            top: -220px;
         }
         @media (max-width: 767px) {
             width: 768px;
@@ -115,14 +122,21 @@ onUnmounted(() => {
       position: relative;
       z-index: 4;
       @media (max-width: 767px) {
-        margin: 0 38px;
+        margin: 0 20px;
       }
     }
 
     .about-top {
         margin-top: -700px;
         @media (max-width: 1240px) {
-            margin-top: -350px;
+            margin-top: -280px;
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            padding: 0 20px;
+        }
+
+        @media (max-width: 767px) {
+            margin-top: -260px;
         }
 
         .heading-h2 {
@@ -151,7 +165,10 @@ onUnmounted(() => {
             margin: -109px -38px 180px;
         }
         @media (max-width: 1240px) {
-            margin: -15px -38px 200px;
+            margin: -15px -38px 0;
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            margin: 0;
         }
         @media (max-width: 767px) {
             flex-direction: column-reverse;
@@ -174,7 +191,8 @@ onUnmounted(() => {
                     margin-top: 80px;
                 }
                 @media (max-width: 767px) {
-                    margin-top: -60px;
+                  margin-top: -110px;
+                  z-index: 2;
                 }
             }
 
@@ -215,28 +233,34 @@ onUnmounted(() => {
             position: relative;
             right: 0;
             font-size: 13px;
-            margin: 50px;
+            margin: 0 50px 50px;
         }
 
         &:before {
             content: "";
-            background: url("/images/about/about-block-bg.svg") no-repeat;
+            background: url("/images/about/about-block-bg.png") no-repeat;
             background-size: cover;
             width: 1000px;
-            height: 562px;
+            height: 616px;
             position: absolute;
             left: -600px;
             top: -250px;
             z-index: -1;
+            opacity: 0.7;
             @media (max-width: 1540px) {
-                width: 920px;
-                height: 465px;
+                width: 755px;
+                height: 459px;
             }
             @media (max-width: 1240px) {
-                width: 820px;
-                height: 200px;
-                left: -143%;
-                top: -0;
+                width: 470px;
+                height: 283px;
+                left: -78%;
+                top: -180px;
+            }
+            @media (min-width: 768px) and (max-width: 1023px) {
+                width: 533px;
+                height: 373px;
+                transform: translate(16%, 6%);
             }
             @media (max-width: 767px) {
                 width: 533px;

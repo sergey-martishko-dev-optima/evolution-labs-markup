@@ -39,7 +39,12 @@
     background: #FF5B35;
     padding: 0 38px 30px;
     position: relative;
-
+    @media (min-width: 768px) and (max-width: 1023px) {
+        padding-top: 3px;
+    }
+    @media (max-width: 767px) {
+        padding: 0 20px 30px;
+    }
     &:before {
         content: "";
         background: url("/images/footer-line.svg") repeat-x 50% 0;
@@ -48,18 +53,41 @@
         display: block;
         position: absolute;
         top: -236px;
-        left: 0;
+        left: -550px;
         right: 0;
+        @media (max-width: 1540px) {
+            left: -439px;
+        }
+        @media (max-width: 1240px) {
+            left: -156px;
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            left: -68px;
+            height: 170px;
+            top: -168px;
+        }
         @media (max-width: 767px) {
             background-position: 33% 0;
             height: 114px;
             top: -113px;
+            left: -43px;
         }
     }
 
     .column {
-        @media (min-width: 768px) {
-            width: 50%;
+        &:first-child {
+          @media (min-width: 768px) {
+            width: 35%;
+          }
+        }
+
+        &:last-child {
+            @media (min-width: 768px) and (max-width: 1023px) {
+                padding-left: 40px;
+            }
+            @media (min-width: 768px) {
+                width: 65%;
+            }
         }
     }
 
@@ -79,6 +107,9 @@
         max-width: 256px;
         width: 100%;
         height: auto;
+        @media (min-width: 768px) and (max-width: 1023px) {
+            max-width: 180px;
+        }
         @media (max-width: 767px) {
             max-width: 150px;
             display: block;
@@ -91,8 +122,11 @@
         letter-spacing: 0;
         color: #FFFFFF;
         margin: 0;
+        @media (min-width: 768px) and (max-width: 1023px) {
+            font-size: 28px;
+        }
         @media (max-width: 767px) {
-            font-size: 25px;
+            font-size: 22px;
         }
     }
 
@@ -100,8 +134,11 @@
         font: normal normal normal 22px/30px 'Graphik', sans-serif;
         letter-spacing: 0;
         color: #FFFFFF;
+        @media (min-width: 768px) and (max-width: 1023px) {
+            font-size: 16px;
+        }
         @media (max-width: 767px) {
-            font-size: 14px;
+            font-size: 12px;
         }
         &:hover {
             text-decoration: underline;

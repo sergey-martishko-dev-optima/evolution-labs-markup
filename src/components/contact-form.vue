@@ -50,6 +50,9 @@
     background: #DAE0DE;
     padding: 100px 38px 300px;
     position: relative;
+    @media (min-width: 768px) and (max-width: 1023px) {
+        padding: 15px 20px 260px;
+    }
     @media (max-width: 767px) {
         padding-bottom: 140px;
         padding-top: 0;
@@ -57,20 +60,29 @@
 
     &:before {
         content: "";
-        background: url("/images/contact-line.svg") repeat-x 100% 0;
+        background: url("/images/contact-line.svg") repeat-x 196px 0;
         background-size: cover;
         height: 236px;
         display: block;
         position: absolute;
-        top: -236px;
+        top: -234px;
         left: 0;
         right: 0;
         @media (max-width: 1600px) {
-            background-position: -100% 0;
+            background-position: -12% 0;
             height: 323px;
         }
         @media (max-width: 1240px) {
-            height: 236px;
+            background-position: -1190px 0;
+            height: 235px;
+        }
+        @media (min-width: 1100px) and (max-width: 1240px) {
+            background-position: -1114px 0;
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            height: 170px;
+            top: -155px;
+            background-position: 53px;
         }
         @media (max-width: 767px) {
             background-position: 2% 0;
@@ -83,10 +95,18 @@
         font: normal normal 300 70px/80px 'Flecha M', sans-serif;
         letter-spacing: 0;
         color: #FF5B35;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
+        max-width: 676px;
         @media (max-width: 1540px) {
             font-size: 50px;
             line-height: 55px;
+            max-width: 476px;
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            font-size: 40px;
+            line-height: 45px;
+            max-width: 420px;
+            padding-right: 15px;
         }
         @media (max-width: 767px) {
             font-size: 30px;
@@ -109,6 +129,9 @@
 
     .form {
         padding: 0 50px;
+        @media (min-width: 768px) and (max-width: 1023px) {
+            padding: 0;
+        }
         @media (max-width: 767px) {
             padding: 0;
         }
