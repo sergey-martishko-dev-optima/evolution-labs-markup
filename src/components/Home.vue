@@ -1,23 +1,21 @@
 <script setup lang="ts">
 import {ref, onMounted, onUnmounted, nextTick} from 'vue'
 import useParallax from "../composables/useParallax.ts"
-import useAnimate from "../composables/useAnimate.ts";
-
+import useVisibleElementAnimation from "../composables/useVisibleElementAnimation.ts"
 
 const container = ref<HTMLDivElement | HTMLElement | null>(null)
 const element = ref<HTMLImageElement | null>(null)
 const poster = ref<HTMLDivElement | HTMLElement | null>(null)
 const posterText = ref<HTMLDivElement | HTMLElement | null>(null)
 
-const {isParallaxActive, containerHeight, translateY, handleScroll} = useParallax({container, element, containerHeightCoeff: 1.25})
+const {classNames: posterClassNames} = useVisibleElementAnimation({element: poster, transition: 'horizontalToRight'})
 
-const {createObserver: createObserverForPoster, animationClass: animationClassForPoster} = useAnimate({element: poster, classNames: ['animate__fadeInUp']})
-const {createObserver: createObserverForPosterText, animationClass: animationClassForPosterText} = useAnimate({element: posterText, classNames: ['animate__fadeInUp']})
+const {classNames: posterTextClassNames} = useVisibleElementAnimation({element: posterText, transition: 'horizontalToLeft'})
+
+const {isParallaxActive, containerHeight, translateY, handleScroll} = useParallax({container, element, containerHeightCoeff: 1.25})
 
 onMounted(() => {
     handleScroll()
-    createObserverForPoster()
-    createObserverForPosterText()
     window.addEventListener('scroll', handleScroll)
     nextTick(() => {
         window.dispatchEvent(new Event('scroll'));
@@ -40,11 +38,11 @@ onUnmounted(() => {
                 </div>
             </h2>
             <div class="row-line">
-                <div ref="poster" class="column-w50 part-left" :class="[animationClassForPoster]">
+                <div ref="poster" class="column-w50 part-left" :class="posterClassNames">
                     <img class="poster-left-ab" src="/images/home-oval-bg.png" alt="">
                     <div class="gray-color"></div>
                 </div>
-                <div ref="posterText" class="column-w50 part-right" :class="[animationClassForPosterText]">
+                <div ref="posterText" class="column-w50 part-right" :class="posterTextClassNames">
                     <p class="description">Coming to the lively mixed-use neighborhood of Pike & Rose, EvolutionLabs
                         North Bethesda will be the premier, walkable, urban life science opportunity in Maryland,
                         developed by Stonebridge.</p>

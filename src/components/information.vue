@@ -2,6 +2,7 @@
 import {ref, onMounted, nextTick, onUnmounted} from 'vue'
 import useAnimate from "../composables/useAnimate.ts"
 import useParallax from "../composables/useParallax.ts"
+import useVisibleElementAnimation from "../composables/useVisibleElementAnimation.ts"
 
 
 const heading = ref<HTMLHeadElement|HTMLElement|null>(null)
@@ -11,7 +12,9 @@ const imageWrapperMobile = ref<HTMLDivElement|HTMLElement|null>(null)
 const fullOfLifeContainer = ref<HTMLDivElement|HTMLElement|null>(null)
 const fullOfLifeElement = ref<HTMLDivElement|HTMLElement|null>(null)
 
-const {createObserver: createObserverForHeading, animationClass: animationClassForHeading} = useAnimate({element: heading, classNames: ['animate__fadeInUp']})
+
+const {classNames: headingClassNames} = useVisibleElementAnimation({element: heading, transition: 'vertical'})
+
 const {createObserver: createObserverForText, animationClass: animationClassForText} = useAnimate({element: text, classNames: ['animate__fadeInUp']})
 const {createObserver: createObserverForImageWrapper, animationClass: animationClassForImageWrapper} = useAnimate({element: imageWrapper, classNames: ['animate__fadeInUp']})
 const {createObserver: createObserverForImageWrapperMobile, animationClass: animationClassForImageWrapperMobile} = useAnimate({element: imageWrapperMobile, classNames: ['animate__fadeInUp']})
@@ -26,7 +29,6 @@ const {createObserver: createObserverForFullOfLifeTextWrapper, animationClass: a
 
 onMounted(() => {
     handleScroll()
-    createObserverForHeading()
     createObserverForText()
     createObserverForImageWrapper()
     createObserverForImageWrapperMobile()
@@ -49,7 +51,7 @@ onUnmounted(() => {
 <template>
     <section class="information-block">
         <div class="container">
-            <h2 ref="heading" class="heading-h2" :class="[animationClassForHeading]">A campus with <br/>
+            <h2 ref="heading" class="heading-h2" :class="[headingClassNames]">A campus with <br/>
                 a community feel. </h2>
             <div class="information-block-about-campus row-line">
                 <div ref="text" class="column-w40" :class="[animationClassForText]">
